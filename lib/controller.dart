@@ -232,6 +232,7 @@ class AppController {
 
   handleExit() async {
     await updateStatus(false);
+    await proxy?.stopProxy();
     await savePreferences();
     clashCore.shutdown();
     system.exit();
